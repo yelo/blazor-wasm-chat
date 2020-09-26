@@ -1,0 +1,38 @@
+﻿@page "/"
+
+<div class="window center @(User == null ? "small-window" : "big-window")">
+    <div class="title-bar">
+        <div class="title-bar-text window-title">❖ WIN32.CHAT - @(User == null ? "Sign in" : $"Handle: {User.Handle}")</div>
+        <div class="title-bar-controls">
+            <button aria-label="Close" @onclick="Close"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        @if (User == null)
+        {
+            <p>
+                @if (HandleIsAvailable)
+                {
+                    <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em>
+                }
+                else
+                {
+                    <em style="color: red;">Your username is invalid or might already be in use :(</em>
+                }
+            </p>
+            <div>
+                <label for="handle" class="handle-label">
+                    Enter your hacker handle:
+                </label>
+                <input maxlength="16" id="handle" type="text" @bind="Handle" @bind:event="oninput" @onkeyup="InitChat" />
+            </div>
+            <div class="button-container">
+                <button @onclick="TapConnect">Connect</button>
+            </div>
+        }
+        else
+        {
+            <ChatComponent @ref="ChatComponent" User="User"></ChatComponent>
+        }
+    </div>
+</div>

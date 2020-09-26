@@ -1,0 +1,104 @@
+﻿html, body {
+    margin: 0 auto;
+    background: #008080;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.small-window {
+    width: 300px;
+    height: 115px;
+}
+
+.big-window {
+    width: 800px;
+    height: 610px;
+}
+
+/*.small-window, .big-window {
+    
+    transition:all .1s ease-in-out;
+}*/
+
+.message-list {
+    width: 600px;
+}
+
+.nick-list {
+    width: 150px;
+}
+
+li:last-child {
+    margin-bottom: 3px;
+}
+
+.message-list, .nick-list {
+    height: 500px;
+    overflow: auto;
+}
+
+.handle-label {
+    margin-right: 8px;
+}
+
+.button-container {
+    margin-top: 8px;
+}
+
+.button-container, .button-container-send {
+    display: flex;
+    width: 100%;
+}
+
+button {
+    margin-left: auto;
+}
+
+#handle {
+    width:155px;
+}
+
+ul.tree-view {
+    font-family: monospace !important;
+}
+
+.chat-input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.chat-lits {
+    clear: both;
+}
+
+.messages {
+    float: left;
+}
+
+.nicks {
+    float: right;
+}
+
+.center {
+    background-color: #FFDC00;
+    margin: 0 auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.win-load {
+    background-color: unset;
+}
+
+.window-title {
+    background: linear-gradient(to right, #ff8100 0%, #00b5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

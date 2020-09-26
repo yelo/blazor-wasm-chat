@@ -1,0 +1,29 @@
+﻿<div>
+    <div class="chat-lists">
+        <div class="messages">
+            <ul class="tree-view message-list" id="chat-history">
+                @foreach (var line in Backlog)
+                {
+                    <li>
+                        [@line.Timestamp.ToString("HH:mm:ss")]
+                        <strong style="color:rgb(@line.From.Color.ToArgb()">@line.From.Handle.Replace(" ", "_")</strong> &rarr; @line.Message
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="nicks">
+            <ul class="tree-view nick-list">
+                @foreach (var user in CurrentUsers)
+                {
+                    <li>@user.Handle</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <input class="chat-input" maxlength="128" autofocus disabled="@(!IsConnected)" type="text" @bind="Message" @bind:event="oninput" @onkeyup="DoSubmit" />
+    <div class="button-container-send">
+        <button @onclick="SendMessage">Send</button>
+    </div>
+</div>
